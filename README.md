@@ -8,4 +8,4 @@ Feel free to add anything to this script in terms of exports erc. Just hmu if yo
 
 Webhook - Create a webhook in a channel you want it to send in your discord server, and it will send to that channel
 
-AcePerm - add to your server.cfg (example: add_ace group.(role) staff.clockin 
+AcePerm - add to your server.cfg (example: add_ace group.(role) staff.clockin allow
