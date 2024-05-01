@@ -17,10 +17,10 @@ RegisterCommand("clockin", function(source, args, rawCommand)
                 ["title"] = "Clockin",
                 ["description"] = "\n**Discord**: <@".. discordId ..">",
                 ["footer"] = {
-                    ["text"] = "Made by danboi",
+                    ["text"] = "Atlas Development - 2024",
                 },
             }
-            sendHttpRequest(webhookURL, {username = "Clockin Bot", embeds = {embedData}})
+            sendHttpRequest(webhookURL, {username = "Staff Clockin", embeds = {embedData}})
         end
     else
         TriggerClientEvent('codem-notification', source, 'No Permission', 8000, 'error')
@@ -51,9 +51,9 @@ RegisterCommand("clockout", function(source, args, rawCommand)
             ["title"] = "Clockout",
             ["description"] = "\n**Discord**: <@" .. discordId .. "> " .. formatTime(totalTimeWorked),
             ["footer"] = {
-                ["text"] = "Made by danboi",
+                ["text"] = "Atlas Development - 2024",
             },
         }
-        sendHttpRequest(webhookURL, {username = "Clockin Bot", embeds = {embedData}})
+        sendHttpRequest(webhookURL, {username = "Staff Clockin", embeds = {embedData}})
     end
 end, false)
