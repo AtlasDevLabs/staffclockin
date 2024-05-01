@@ -32,9 +32,9 @@ function SendNotification(recipient, message, type)
         end
     elseif Config.Notify == 2 then 
         if type == "success" then 
-            TriggerClientEvent('codem-notification', recipient, message, 8000, 'check', options)
+            TriggerClientEvent('codem-notification', recipient, message, Config.NotifyDuration, 'check', options)
         elseif type == "error" then 
-            TriggerClientEvent('codem-notification', recipient, message, 8000, 'error', options)
+            TriggerClientEvent('codem-notification', recipient, message, Config.NotifyDuration, 'error', options)
         end
     elseif Config.Notify == 3 then 
         if type == "success" then 
