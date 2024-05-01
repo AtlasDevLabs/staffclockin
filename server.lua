@@ -19,9 +19,7 @@ end
 RegisterCommand("clockin", function(source, args, rawCommand)
     playerClockIns[source] = {time = os.time(), dept = dept} 
     if IsPlayerAceAllowed(source, 'staff.clockin') then
-        --- uncomment the line below if you have codem notification
-        --TriggerClientEvent('codem-notification', source, 'You have clocked in', 8000, 'check')
-        print('you have clocked in')
+        SendNotification(source, "You have clocked in.", "dispatch")
         local discordId
         for _, identifier in ipairs(GetPlayerIdentifiers(source)) do
             if string.sub(identifier, 1, string.len("discord:")) == "discord:" then
@@ -42,7 +40,7 @@ RegisterCommand("clockin", function(source, args, rawCommand)
     else
         --- uncomment the line below if you have codem notification
         --TriggerClientEvent('codem-notification', source, 'No Permission', 8000, 'error') 
-        print('no perms')
+        SendNotification(source, "No Permission", "dispatch")
     end
 end)
 
@@ -50,16 +48,12 @@ RegisterCommand("clockout", function(source, args, rawCommand)
     local currentTime = os.time()
     local clockData = playerClockIns[source]
     if not clockData then
-        --- uncomment the line below if you have codem notification
-        --TriggerClientEvent('codem-notification', source, 'You haven\'t clocked in yet', 8000, 'error')
-        print('not clocked in')
+        SendNotification(source, "You arent clocked in.", "dispatch")
         return
     end
     local clockInTime = clockData.time
     local totalTimeWorked = currentTime - clockInTime
-    --- uncomment the line below if you have codem notification
-    --TriggerClientEvent('codem-notification', source, 'You Have Clocked Out', 8000, 'info')
-    print('you have clocked out')
+    SendNotification(source, "You have clocked off", "dispatch")
     playerClockIns[source] = nil 
     local discordId
     for _, identifier in ipairs(GetPlayerIdentifiers(source)) do
@@ -79,3 +73,36 @@ RegisterCommand("clockout", function(source, args, rawCommand)
         sendHttpRequest(webhookURL, {username = "Clockin Bot", embeds = {embedData}})
     end
 end, false)
+
+
+function SendNotification(recipient, message, type)
+    if Config.NotificationSystem == 0 then 
+        if type == "dispatch" then 
+            local type = "Dispatch"
+            local message = "[ " .. type .. "] " .. message
+            TriggerClientEvent('chat:addMessage', recipient, message)
+        elseif type == "911" then 
+            local message = "[ " .. type .. "] " .. message
+            TriggerClientEvent('chat:addMessage', recipient, message)
+        end
+    elseif Config.NotificationSystem == 1 then 
+        if type == "dispatch" then 
+            TriggerClientEvent('okokNotify:Alert', recipient, 'Dispatch', message, 4500, 'info', true)
+        elseif type == "911" then 
+            TriggerClientEvent('okokNotify:Alert', recipient, '911', message, 7000, 'info', true)
+        end
+    elseif Config.NotificationSystem == 2 then 
+        if type == "dispatch" then 
+            TriggerClientEvent('codem-notification', recipient, message, 8000, 'check')
+        elseif type == "911" then 
+            TriggerClientEvent('codem-notification', recipient, message, 8000, 'check')
+        end
+    elseif Config.NotificationSystem == 3 then 
+        if type == "dispatch" then 
+            TriggerClientEvent('mythic_notify:client:SendAlert', recipient, { type = 'inform', text = message, style = { ['background-color'] = '#ffffff', ['color'] = '#000000' } })
+        elseif type == "911" then 
+            TriggerClientEvent('mythic_notify:client:SendAlert', recipient, { type = 'inform', text = message, style = { ['background-color'] = '#ffffff', ['color'] = '#000000' } })
+        end
+    end
+end
+
