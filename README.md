@@ -1,6 +1,6 @@
-# danboi-staffclockin
+# atlas-staffclockin
 
-Danboi staff clockin is a clockin script that is for your staff team! log the amount of time your staff has been clocked in for!
+this is a simple clockin script that is for your staff team! log the amount of time your staff has been clocked in for!
 
 Feel free to add anything to this script in terms of exports erc. Just hmu if you have any questions @danboi01
 
