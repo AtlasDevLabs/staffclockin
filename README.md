@@ -1,4 +1,4 @@
-# atlas-staffclockin
+# Atlas-staffclockin
 
 this is a simple clockin script that is for your staff team! log the amount of time your staff has been clocked in for!
 
