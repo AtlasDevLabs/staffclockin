@@ -21,7 +21,7 @@ function SendNotification(recipient, message, type)
             TriggerClientEvent('chat:addMessage', recipient, message)
         elseif type == "error" then 
             local type = "ERROR"
-            local message = "~g~[ " .. type .. " ] ~w~" .. message
+            local message = "~r~[ " .. type .. " ] ~w~" .. message
             TriggerClientEvent('chat:addMessage', recipient, message)
         end
     elseif Config.Notify == 1 then 
