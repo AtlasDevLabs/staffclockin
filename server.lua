@@ -23,7 +23,7 @@ RegisterCommand("clockin", function(source, args, rawCommand)
             sendHttpRequest(webhookURL, {username = "Staff Clockin", embeds = {embedData}})
         end
     else
-        TriggerClientEvent('codem-notification', source, 'No Permission', 8000, 'error')
+        SendNotification(source, "No Permission", 'error')
     end
 end)
 
