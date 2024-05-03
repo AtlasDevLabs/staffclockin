@@ -4,10 +4,6 @@ this is a simple clockin script that is for your staff team! log the amount of t
 
 Feel free to add anything to this script in terms of exports etc
 
-# Dependency
-
-https://github.com/overextended/ox_lib
-
 # Configuration
 
 Webhook - Create a webhook in a channel you want it to send in your discord server, and it will send to that channel
@@ -19,6 +15,8 @@ AcePerm - add to your server.cfg (example: add_ace group.(role) staff.clockin al
 Notfication Type - Change to your own notification system
 
 Notification Duration - Add a Custom Duration for your notify
+
+You will have to download [https://github.com/overextended/ox_lib] for the script to work
 
 # Need Support?
 
