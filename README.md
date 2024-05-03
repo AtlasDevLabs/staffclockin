@@ -1,7 +1,6 @@
 > [!NOTE]
 > Webhook - Create a webhook in a channel you want it to send in your discord server, and it will send to that channel
-> [!NOTE]
-> Keybind - Keybind for the ox_lib menu (defaulted to F9)
+>> Keybind - Keybind for the ox_lib menu (defaulted to F9)
 > [!NOTE]
 > AcePerm - add to your server.cfg (example: add_ace group.(role) atlas.cmds allow
 > [!NOTE]
