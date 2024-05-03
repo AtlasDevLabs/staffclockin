@@ -6,9 +6,13 @@ Feel free to add anything to this script in terms of exports etc
 
 > [!NOTE]
 > Webhook - Create a webhook in a channel you want it to send in your discord server, and it will send to that channel
+
 > Keybind - Keybind for the ox_lib menu (defaulted to F9)
-> AcePerm - add to your server.cfg (example: add_ace group.(role) staff.clockin allow
+
+> AcePerm - add to your server.cfg (example: add_ace group.(role) atlas.cmds allow
+
 > Notfication Type - Change to your own notification system
+
 > Notification Duration - Add a Custom Duration for your notify
 
 > [!IMPORTANT]
