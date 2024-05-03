@@ -22,5 +22,5 @@ Notification Duration - Add a Custom Duration for your notify
 
 # Need Support?
 
-Join our Discord discord.gg/atlasdevlabs
+Join our Discord discord.gg/atlaslabs
 
