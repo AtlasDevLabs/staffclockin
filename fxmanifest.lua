@@ -1,18 +1,20 @@
 fx_version 'cerulean'
 games { 'gta5' }
+author 'AtlasDevLabs'
+description 'Need Support? Join discord.gg/atlaslabs'
+version '3.0.0'
+lua54 'yes'
 
-author 'AtlasDev'
-description 'Staff Clockin - For All Your Staffing Needs'
-version '2.0.0'
+shared_script '@ox_lib/init.lua'
 
 client_scripts {
-  "client.lua",
+  "config.lua",
   "functions.lua",
-  "config.lua"
+  "client.lua"
 }
 
 server_scripts {
-  "server.lua",
+  "config.lua",
   "functions.lua",
-  "config.lua"
+  "server.lua"
 }
