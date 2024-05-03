@@ -16,7 +16,7 @@ Notfication Type - Change to your own notification system
 
 Notification Duration - Add a Custom Duration for your notify
 
-You will have to download [https://github.com/overextended/ox_lib] for the script to work
+You will have to download [ox_lib] for the script to work
 
 # Need Support?
 
