@@ -1,3 +1,10 @@
+function formatTime(seconds)
+    local remainingSeconds = seconds % 60
+    local hours = math.floor(seconds / 3600)
+    local minutes = math.floor((seconds % 3600) / 60)
+    return string.format("\n**Hours**: %d \n**Minutes**: %d \n**Seconds**: %d", hours, minutes, remainingSeconds)
+end
+
 function sendHttpRequest(url, data)
     PerformHttpRequest(url, function(err, text, headers)
         if err then
@@ -6,22 +13,15 @@ function sendHttpRequest(url, data)
     end, 'POST', json.encode(data), { ['Content-Type'] = 'application/json' })
 end
 
-function formatTime(seconds)
-    local remainingSeconds = seconds % 60
-    local hours = math.floor(seconds / 3600)
-    local minutes = math.floor((seconds % 3600) / 60)
-    return string.format("\n**Hours**: %d \n**Minutes**: %d \n**Seconds**: %d", hours, minutes, remainingSeconds)
-end
-
 function SendNotification(recipient, message, type)
     if Config.Notify == 0 then 
         if type == "success" then 
             local type = "SUCCESS"
-            local message = "~g~[ " .. type .. " ] ~w~" .. message
+            local message = "~g~[" .. type .. "] ~w~" .. message
             TriggerClientEvent('chat:addMessage', recipient, message)
         elseif type == "error" then 
             local type = "ERROR"
-            local message = "~r~[ " .. type .. " ] ~w~" .. message
+            local message = "~r~[" .. type .. "] ~w~" .. message
             TriggerClientEvent('chat:addMessage', recipient, message)
         end
     elseif Config.Notify == 1 then 
@@ -32,9 +32,9 @@ function SendNotification(recipient, message, type)
         end
     elseif Config.Notify == 2 then 
         if type == "success" then 
-            TriggerClientEvent('codem-notification', recipient, message, Config.NotifyDuration, 'check', options)
+            TriggerClientEvent('codem-notification', recipient, message, 8000, 'check', options)
         elseif type == "error" then 
-            TriggerClientEvent('codem-notification', recipient, message, Config.NotifyDuration, 'error', options)
+            TriggerClientEvent('codem-notification', recipient, message, 8000, 'error', options)
         end
     elseif Config.Notify == 3 then 
         if type == "success" then 
