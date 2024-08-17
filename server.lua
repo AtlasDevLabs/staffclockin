@@ -4,12 +4,7 @@ RegisterNetEvent('atlas:staffclockin:clockIn')
 AddEventHandler('atlas:staffclockin:clockIn', function()
 local source = source
 playerClockIns[source] = {time = os.time()} 
-    local discordId
-    for _, identifier in ipairs(GetPlayerIdentifiers(source)) do
-        if string.sub(identifier, 1, string.len("discord:")) == "discord:" then
-            discordId = string.gsub(identifier, "discord:", "")
-        end
-    end
+    local discordId = GetPlayerIdentifierByType(source, 'discord') and GetPlayerIdentifierByType(source, 'discord'):gsub("discord:", "") or false
     SendNotification(source, Config.ClockinMessage, 'success')
     if discordId then
         local webhookURL = Config.Webhook
@@ -37,12 +32,7 @@ AddEventHandler('atlas:staff:clockOut', function()
     local clockInTime = clockData.time
     local totalTimeWorked = currentTime - clockInTime
     playerClockIns[source] = nil 
-    local discordId
-    for _, identifier in ipairs(GetPlayerIdentifiers(source)) do
-        if string.sub(identifier, 1, string.len("discord:")) == "discord:" then
-            discordId = string.gsub(identifier, "discord:", "")
-        end
-    end
+    local discordId = GetPlayerIdentifierByType(source, 'discord') and GetPlayerIdentifierByType(source, 'discord'):gsub("discord:", "") or false
     SendNotification(source, Config.ClockoutMessage, 'error')
     if discordId then
         local webhookURL = Config.Webhook

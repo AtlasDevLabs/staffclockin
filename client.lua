@@ -1,3 +1,5 @@
+local DEFAULT_KEYBIND = "F9"
+
 lib.registerMenu({
     id = 'clock_menu',
     title = 'Clock Menu',
@@ -21,7 +23,7 @@ end)
 local keybind = lib.addKeybind({
     name = 'StaffClockin',
     description = 'Staff Clockin Keybind',
-    defaultKey = Config.Keybind,
+    defaultKey = DEFAULT_KEYBIND,
     onPressed = function()
         lib.showMenu('clock_menu')
     end,
